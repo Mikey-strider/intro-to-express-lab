@@ -12,12 +12,16 @@ app.listen(3000, () => {
   console.log('Listening on port 3000')
 });
 
+
+
 // 1. Be Polite, Greet the User
 app.get('/greeting/:username', (req, res) => {
   console.log(req.params);
 
   res.send(`Hello ${req.params.username}! How are you today?`)
 });
+
+
 
 // 2. Rolling the Dice
 app.get('/roll/:number', (req, res) => {
@@ -31,6 +35,8 @@ app.get('/roll/:number', (req, res) => {
   }
 });
 
+
+
 // 3. I Want THAT One!
 const collectibles = [
   { name: 'shiny ball', price: 5.95 },
@@ -38,7 +44,6 @@ const collectibles = [
   { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
 ];
 
-let newCollection = [];
 
 app.get('/collectibles/:index', (req, res) => {
   const collection = parseInt(req.params.index, 10);
@@ -53,6 +58,7 @@ app.get('/collectibles/:index', (req, res) => {
     res.send('This item is not yet in stock. Check back soon');
   }
 })
+
 
 
 // 4. Filter Shoes by Query Parameters
